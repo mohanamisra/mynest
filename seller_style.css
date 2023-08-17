@@ -2,9 +2,30 @@ body{
     background-color: #282c34;
     color: azure;
     font-family: 'Quicksand', sans-serif;
-    font-size:xx-large;
+    font-size:x-large;
+}
+.centre-container-ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .centre-container{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+}
+.my-nest-text{
+    color: #D8464F;
+    font-weight: bold;
+    font-size: xx-large;
+}
+a {
+    color: aqua;
+    text-decoration: none;
+}
+.button{
+    display: block;
+    border-radius: 16px;
+    padding: 10px;
+    background-color: #212121;
 }
