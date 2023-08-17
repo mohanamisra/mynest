@@ -27,10 +27,6 @@ html, body {
     justify-content: space-around;
 }
 
-li {
-
-}
-
 a {
     color: white;
     text-decoration: none;
@@ -83,6 +79,14 @@ a {
 
 #map_div {
     height: 100vh;
+}
+
+#search-results {
+    list-style-type: none;
+    margin-top: -12px;
+    padding-top: 16px;
+    color: black;
+    background-color: white;
 }
 /* FOOTER STYLING */
 
