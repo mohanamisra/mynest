@@ -81,6 +81,9 @@ a {
     font-size: 16px;
 }
 
+#map_div {
+    height: 100vh;
+}
 /* FOOTER STYLING */
 
 footer {

@@ -7,9 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>MyNest</title>
 </head>
 <body>
@@ -30,21 +27,18 @@
             </p>
         </section>
 
-        <section class = "search-section">
-            <form class = "searchbar">
-                <input id = "search-bar" type = "text" placeholder = "Enter location">
-                <div id = "autocomplete-dropdown"></div>
-                <button type = "submit">Search</button>
+        <section class="search-section">
+            <form class="searchbar">
+                <input id="search-bar" type="text" placeholder="Enter location">
             </form>
+            <ul id="search-results"></ul> <!-- This element will hold the search results -->
         </section>
-
-        <section id="map"></section>
-
+        
 
         <footer>
             Made by Team 405 Found &copy
         </footer>
     </container>
-    <script src = "index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

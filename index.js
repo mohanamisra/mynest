@@ -1,44 +1,45 @@
-// Initialize the map inside the "map" div
-const map = L.map('map').setView([51.505, -0.09], 13);
+// index.js
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+const searchInput = document.getElementById("search-bar");
+const searchResults = document.getElementById("search-results");
 
-const searchControl = new L.Control.Search({
-    url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}', // Nominatim API endpoint
-    jsonpParam: 'json_callback',
-    propertyName: 'display_name', // The property that contains the suggestion text
-    marker: false, // Don't add markers to the map
-    autoCollapse: true, // Hide dropdown when a suggestion is selected
-    collapsed: false, // Keep the search bar open
-    autoType: false, // Don't automatically fill the input with selected suggestion
-    minLength: 2, // Minimum characters required before making API requests
+function displayResults(results) {
+    searchResults.innerHTML = "";
+    results.forEach(result => {
+        const li = document.createElement("li");
+        li.textContent = result.display_name;
+        searchResults.appendChild(li);
+        li.addEventListener("click", () => {
+            searchInput.value = result.display_name;
+            searchResults.innerHTML = "";
+        });
+    });
+}
+
+async function fetchLocations(query) {
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=json`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching locations:", error);
+        return [];
+    }
+}
+
+searchInput.addEventListener("input", async () => {
+    const searchTerm = searchInput.value;
+    if (searchTerm.trim() === "") {
+        searchResults.innerHTML = "";
+        return;
+    }
+
+    const locations = await fetchLocations(searchTerm);
+    displayResults(locations);
 });
 
-// Bind the search control to the search bar input
-searchControl._input = document.getElementById('search-bar');
-
-// Handle suggestion selection
-searchControl.on('search_locationfound', function(e) {
-    const selectedSuggestion = e.text;
-    document.getElementById('search-bar').value = selectedSuggestion;
-});
-
-// Add the search control to the map
-searchControl.addTo(map);
-
-$("#search-bar").on("input", function() {
-    const query = $(this).val();
-    if (query.length > 2) {
-        searchControl.searchText(query); // Trigger the search
-        $("#autocomplete-dropdown").show();
-    } else {
-        $("#autocomplete-dropdown").hide();
+document.addEventListener("click", event => {
+    if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+        searchResults.innerHTML = "";
     }
 });
-
-searchControl._panel = document.getElementById('autocomplete-dropdown');
-
-// Customize the look of suggestions in the dropdown
-searchControl._list = $('<ul class="leaflet-control-search-results"></ul>').appendTo(searchControl._panel);
