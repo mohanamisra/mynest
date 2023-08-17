@@ -1,3 +1,95 @@
-html {
-    background-color: red;
+html, body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #4b2818;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* NAVBAR STYLING */
+
+.navbar {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 50px;
+    list-style: none;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* BRANDING AREA STYLING */
+
+.branding {
+    margin-left: 95px;
+}
+
+.adcopy {
+    max-width: 518px;
+
+    font-weight: 700;
+    font-size: 52px;
+}
+
+/* SEARCHBAR STYLING */
+
+.search-section {
+    align-self: center;
+}
+
+.searchbar {
+    border-radius: 16px;
+    width: 1200px;
+    height: 50px;
+
+    background-color: white;
+
+    display: flex;
+}
+
+.searchbar input {
+    border: none;
+    width: 100%;
+    margin-left: 16px;
+
+    font-size: 16px;
+}
+
+.searchbar button {
+    background-color: transparent;
+    border: none;
+    margin-right: 16px;
+
+    font-size: 16px;
+}
+
+/* FOOTER STYLING */
+
+footer {
+    background-color: #281006;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 12px;
 }
