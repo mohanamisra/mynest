@@ -1,0 +1,10 @@
+body{
+    background-color: #282c34;
+    color: azure;
+    font-family: 'Quicksand', sans-serif;
+    font-size:xx-large;
+}
+.centre-container{
+    display: flex;
+    justify-content: center;
+}
