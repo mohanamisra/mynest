@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="complaints_style.css">
+<title>Resident Issues & Complaints</title>
+
+</head>
+<body>
+<div class="container">
+  <h1>Housing Issues & Complaints</h1>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <label for="issue">Select the issue:</label>
+    <select id="issue" name="issue">
+      <option value="maintenance">Maintenance Problem</option>
+      <option value="security">Security Concern</option>
+      <option value="amenities">Amenities Issue</option>
+ 
+    </select>
+
+    <label for="rating">Star Rating:</label>
+    <select id="rating" name="rating">
+      <option value="1">1 Star</option>
+      <option value="2">2 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="5">5 Stars</option>
+    </select>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" rows="4"></textarea>
+
+    <label for="photo">Upload Photo (proof of issue):</label>
+    <input type="file" id="photo" name="photo" accept="image/*" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="complaints">
+    <h2>Recent Complaints</h2>
+    <div class="complaint">
+      <h3>Maintenance Problem</h3>
+      <p>Our faucet has been leaking for a week, and no one has come to fix it yet.</p>
+      <div class="rating">Rating: 3 Stars</div>
+      <img src="fotouwu.jp" alt="Issue Photo">
+    </div>
+    <div class="complaint">
+      <h3>Security Concern</h3>
+      <p>The front gate doesn't close properly, compromising the security of the complex.</p>
+      <div class="rating">Rating: 2 Stars</div>
+      <img src="uwu.jpg" alt="Issue Photo">
+    </div>
+    <!-- Add more complaints here -->
+  </div>
+</div>
+</body>
+</html>
