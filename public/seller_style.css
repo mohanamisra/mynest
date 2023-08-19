@@ -29,7 +29,19 @@ html, body {
     font-size: 64px;
     font-weight: 700;
 }
-
+.ul-nostyle
+{
+    list-style: none;
+}
+.mid-text{
+    font-size: medium;
+}
+.l-text{
+    font-size: large;
+}
+.xl-text{
+    font-size: x-large;
+}
 /* NAVBAR STYLING */
 
 .navbar {

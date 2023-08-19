@@ -11,16 +11,16 @@ app.use(express.static('files'))
 const HTMLPATH = './public/'
 const CITIES = './files/cities.json';
 const INDEX = 'index.html';
-const PROP  = 'properties.html';
+const PROP = 'properties.html';
 
 app.get('/', (req, res) => {
-  fs.readFile(path.join(HTMLPATH,INDEX), function (err, data) {
+  fs.readFile(path.join(HTMLPATH, INDEX), function (err, data) {
     res.send(data);
   });
 });
 
 //localhost:3000/?search=Domlur
-app.get('/properties.html', (req, res) => {
+app.get('/properties/:query?', (req, res) => {
   var q = url.parse(req.url, true);
   console.log(q.query);
   var search = q.query.search;
@@ -28,11 +28,21 @@ app.get('/properties.html', (req, res) => {
     if (err) { res.status(404).send('File not found :('); }
     else {
       const loc = JSON.parse(data);
-      if (loc.localities.includes(search)) {
-        console.log('found');
-      } else {
-        res.status(404).send("locality not found");
+      if (search != undefined) {
+        if (loc.localities.includes(search)) {
+          console.log('found');
+          res.redirect(
+            url.format({
+              pathname:PROP,
+              query:req.query,
+            })
+          );
+        }
+        else {
+          res.status(404).send("locality not found : \"" + search + "\"");
+        }
       }
+
     }
   });
 });
