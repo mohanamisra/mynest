@@ -9,39 +9,24 @@ html, body {
 .container {
     height: 100vh;
     background-color: #4b2818;
+    background-image: url("public_assets/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* BRANDING STYLING */
-
-.branding {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-.centre-container{
+.coming-soon {
     display: flex;
     justify-content: center;
-    font-size: 64px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline;
 }
-.ul-nostyle
-{
-    list-style: none;
-}
-.mid-text{
-    font-size: medium;
-}
-.l-text{
-    font-size: large;
-}
-.xl-text{
-    font-size: x-large;
-}
+
 /* NAVBAR STYLING */
 
 .navbar {
@@ -49,7 +34,6 @@ html, body {
     padding: 0px;
     margin-top: 50px;
     list-style: none;
-    margin-top: -60px;
 
     display: flex;
     justify-content: space-around;
@@ -71,20 +55,21 @@ a {
     display: flex;
     justify-content: space-around;
     list-style: none;
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .options li {
     background-color: #2a150d;
-    padding: 60px;
-    border-radius: 25px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
 }
 
 /* FOOTER STYLING */
 
 footer {
     background-color: #281006;
-    height: 32px;
+    min-height: 40px;
 
     display: flex;
     align-items: center;

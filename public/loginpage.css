@@ -4,7 +4,12 @@ body {
    margin: 0px;
    background-color: #4b2818;
    font-family: 'Quicksand', sans-serif;
-   color: white;
+
+   background-image: url('public_assets/bg3.jpg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   font-weight: 700;
 }
 
 .container {
@@ -19,8 +24,16 @@ body {
 /* NAVBAR STYLING */
 
 .navbar {
-   margin-bottom: 20px;
+   margin-top: -30px;
    font-family: 'Quicksand', sans-serif;
+   list-style-type: none;
+}
+
+.main-navbar li {
+   font-weight: 500;
+   background-color: #281006;
+   padding: 8px 12px;
+   border-radius: 9px;
 }
 
 .navbar ul.nav-tabs {
@@ -55,4 +68,23 @@ body {
 a {
    color: white;
    text-decoration: none;
+}
+
+/* Content styling */
+
+#member1, #member2 {
+   color: white;
+}
+
+/* FOOTER STYLING */
+
+footer {
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+   color: white;
+   font-weight: bold;
+   padding-bottom: 10px;
 }
