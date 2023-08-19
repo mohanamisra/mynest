@@ -42,7 +42,8 @@
             <div class = "unique">
                 <div class = "facilities">
                     <h2>Nearby Facilities</h2>
-                    <div class = "graphics"></div>
+                    <div id = "icons-container"></div>
+
                 </div>
                 <p id="temperature"></p>
                 <p id="weather"></p>
@@ -50,8 +51,11 @@
                 <div class = "user-data">
                     <h2>Reported By Your Neighbours</h2>
                     <p>Ongoing issues: Maintenance Problem, Security Concerns</p>
-                    <p>Cultural Inclusivity: &#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                    <p id = "culturalInclusivity">Cultural Inclusivity: Minimal Biases</p>
                     <button class = "clickable"><a href = "Complaints.html">Report An Issue</a></button>
+                </div>
+                <div class = "opinions">
+                    <h2>Your Neighbours Say...</h2>
                 </div>
             </div>
         </div>
@@ -88,6 +92,109 @@
                 console.error('Error fetching data:', error);
             });
     </script>
+    <script>
+        // Example coordinates (latitude and longitude)
+        const latitude = 12.9697999;
+        const longitude = 77.74994670000001;
+
+        const overpassUrl = `https://overpass-api.de/api/interpreter?data=
+            [out:json];
+            (
+                node(around:1000,${latitude},${longitude})["amenity"="restaurant"];
+                node(around:1000,${latitude},${longitude})["amenity"="hospital"];
+                node(around:1000,${latitude},${longitude})["amenity"="school"];
+                node(around:1000,${latitude},${longitude})["amenity"="police"];
+            );
+            out;`;
+
+        fetch(overpassUrl)
+            .then(response => response.json())
+            .then(data => {
+                const iconsContainer = document.getElementById('icons-container');
+
+                const facilities = {
+                    restaurant: false,
+                    hospital: false,
+                    school: false,
+                    police: false
+                };
+
+                if (data.elements) {
+                    data.elements.forEach(element => {
+                        if (element.tags.amenity === 'restaurant') {
+                            facilities.restaurant = true;
+                        } else if (element.tags.amenity === 'hospital') {
+                            facilities.hospital = true;
+                        } else if (element.tags.amenity === 'school') {
+                            facilities.school = true;
+                        } else if (element.tags.amenity === 'police') {
+                            facilities.police = true;
+                        }
+                    });
+
+                    if (facilities.restaurant) {
+                        appendImage('restaurant.png');
+                    }
+                    if (facilities.hospital) {
+                        appendImage('hospital.png');
+                    }
+                    if (facilities.school) {
+                        appendImage('school.png');
+                    }
+                    if (facilities.police) {
+                        appendImage('police.png');
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+
+            function appendImage(imageSrc) {
+            const img = document.createElement('img');
+            img.src = `public_assets/${imageSrc}`;
+            img.alt = imageSrc;
+            img.style.width = '50px';
+            img.style.height = '50px';
+            img.style.marginRight = '100px';
+            document.getElementById('icons-container').appendChild(img);
+        }
+    </script>
     <script src = "property.js"></script>
+    <script>
+        // Function to get URL parameter value by name
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    
+        // Get URL parameters
+        const selectedIssue = getParameterByName('issue');
+        const selectedRating = getParameterByName('rating');
+        const opinion = getParameterByName('opinion');
+        const name = getParameterByName('name'); // Get the user's name
+    
+        // Update Your Neighbours Say section
+        const neighboursSayDiv = document.querySelector('.opinions');
+        const issueHeading = document.createElement('h3');
+        issueHeading.textContent = selectedIssue;
+        const opinionText = document.createElement('p');
+        opinionText.textContent = opinion;
+        const nameParagraph = document.createElement('p'); // Create a new paragraph for the name
+        nameParagraph.textContent = `Submitted by: ${name}`; // Set the name value
+        neighboursSayDiv.appendChild(issueHeading);
+        neighboursSayDiv.appendChild(opinionText);
+        neighboursSayDiv.appendChild(nameParagraph); // Append the name paragraph
+    
+        // Update Cultural Inclusivity
+        const culturalInclusivityP = document.getElementById('culturalInclusivity');
+        culturalInclusivityP.textContent = `Cultural Inclusivity: ${selectedRating}`;
+    
+    </script>    
 </body>
 </html>

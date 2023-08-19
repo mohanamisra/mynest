@@ -13,7 +13,7 @@ function pickPhoto() {
         pick = 0;
     let image = document.createElement('img');
     image.src = images[pick];
-    image.style.height= '300px';
+    image.style.height= '500px';
     image.style.borderRadius = '16px';
     container.removeChild(container.firstChild);
     container.appendChild(image);
