@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>MyNest</title>
 </head>
 
@@ -34,11 +31,11 @@
         </section>
 
         <section class="search-section">
-            <form class="searchbar" action = '' method = 'get'>
-                <input id="search-bar" type="submit" placeholder="Enter location" value = "search">
+            <form class="searchbar" action="search-results.html" method="get">
+                <input id="search-bar" type="text" name="search" placeholder="Enter location">
                 <div id="autocomplete-dropdown"></div>
                 <button type="submit">Search</button>
-            </form>
+            </form>            
         </section>
 
         <section id="map"></section>
