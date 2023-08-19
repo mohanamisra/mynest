@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
     res.send(data);
   });
 });
-app.get('/search-results.html?', (req, res) => {
+//localhost:3000/?search=Domlur
+app.get('/?', (req, res) => {
   var q = url.parse(req.url, true);
   console.log(q.query);
   var search = q.query.search;
@@ -27,9 +28,7 @@ app.get('/search-results.html?', (req, res) => {
     else {
       const loc = JSON.parse(data);
       if (loc.localities.includes(search)) {
-        fs.readFile(path.join(HTMLPATH,PROP), function (err, data) {
-          res.send(data);
-        });
+        console.log('found');
       } else {
         res.status(404).send("locality not found");
       }
