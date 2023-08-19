@@ -6,7 +6,7 @@ $(document).ready(function () {
 
    $("#signup-form").submit(function (e) {
       e.preventDefault();
-      showPopup("Signed up successfully!");
+      showPopup("Account created successfully!");
    });
 
    $(".switch-tab").click(function () {
@@ -15,11 +15,18 @@ $(document).ready(function () {
       $(targetTab + "-tab").addClass("active");
       $(".tab-pane").removeClass("show active");
       $(targetTab).addClass("show active");
+      history.replaceState(null, null, targetTab);
    });
 
    function showPopup(message) {
-      $("#popup-text").text(message);
-      $(".popup").fadeIn(400).delay(1500).fadeOut(400);
+      const popup = document.createElement("div");
+      popup.className = "custom-popup";
+      popup.textContent = message;
+
+      document.body.appendChild(popup);
+
+      setTimeout(function () {
+         popup.remove();
+      }, 2000);
    }
 });
-//popup message is not showing up. I will fix it soon
