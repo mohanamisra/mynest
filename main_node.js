@@ -1,18 +1,17 @@
-//doesnt work yet
+const express = require('express')
+const app = express()
+const port = 3000
+const fs = require('fs');
 
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
+app.use(express.static('public'))
+app.use(express.static('files'))
 
-
-const DIR_NAME = "C:\\Users\\AryanD\\WebDev\\mynest";
-
-http.createServer(function (req, res) {
-  fs.readFile('public/index.html', function(err, data) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    return res.end();
+app.get('/', (req, res) => {
+  fs.readFile('./public/index.html',function (err,data){
+    res.send(data);
   });
-  var q = url.parse(req.url, true).query;
-  console.log(req.url);
-}).listen(8080); 
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
