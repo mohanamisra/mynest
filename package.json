@@ -1,5 +1,24 @@
 {
+  "name": "mynest",
+  "version": "1.0.0",
+  "description": "website for the hack for good hackathon 2023",
+  "main": "main_node.js",
   "dependencies": {
-    "node": "^20.5.0"
-  }
+    "node": "^20.5.0",
+    "node-bin-setup": "^1.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohanamisra/mynest.git"
+  },
+  "author": "spicybeanos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohanamisra/mynest/issues"
+  },
+  "homepage": "https://github.com/mohanamisra/mynest#readme"
 }
