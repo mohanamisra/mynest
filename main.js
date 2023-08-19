@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.send(data);
   });
 });
-app.get('/search-results.html?', (req, res) => {
+app.get('/?', (req, res) => {
   var q = url.parse(req.url, true);
   console.log(q.query);
   var search = q.query.search;
