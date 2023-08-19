@@ -19,7 +19,7 @@
             <li><a href="#">Buyers</a></li>
             <li><a href="#">Sellers</a></li>
             <li><a href="#">Helpline</a></li>
-            <li><a href="#">Your Profile</a></li>
+            <li><a href="loginpage.html">Your Profile</a></li>
          </ul>
       </navbar>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -45,7 +45,12 @@
                   <label for="login-password">Password</label>
                   <input type="password" class="form-control" id="login-password" required>
                </div>
-               <button type="submit" class="btn btn-primary">Login</button>
+               <button onclick="login()" type="submit" class="btn btn-primary">Login</button>
+               <script>
+                  function login() {
+                     alert("Logged in successfully!");
+                  }
+               </script>
             </form>
             <p class="mt-3">Not a member? <a href="#signup" class="switch-tab">Signup here</a></p>
          </div>
@@ -69,7 +74,12 @@
                   <label for="signup-city">City of Residence</label>
                   <input type="text" class="form-control" id="signup-city" required>
                </div>
-               <button type="submit" class="btn btn-primary">Sign Up</button>
+               <button onclick="signup()" type="submit" class="btn btn-primary">Sign Up</button>
+               <script>
+                  function signup() {
+                     alert("Account created successfully!");
+                  }
+               </script>
             </form>
             <p class="mt-3">Already a member? <a href="#login" class="switch-tab">Login here</a></p>
          </div>
