@@ -14,12 +14,6 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
 }
-<<<<<<< HEAD
-
-/* BRANDING STYLING */
-
-.branding {
-=======
 .vert-container-ul{
     list-style: none;
     display: flex;
@@ -27,7 +21,6 @@ html, body {
     justify-content: space-evenly;
 }
 .centre-container{
->>>>>>> e4a4a25bdcf69e3220d59e9977ab52dd49f8a4a7
     display: flex;
     justify-content: center;
     font-size: 64px;

@@ -1,0 +1,10 @@
+{
+    "properties" : [
+        {
+            "name":"building name",
+            "address" : "somewhere in domlur",
+            "owner" : "me",
+            "phone" : 908
+        }
+    ]
+}
