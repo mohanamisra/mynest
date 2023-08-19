@@ -2,7 +2,7 @@
 
 let latitude = "";
 let longitude = "";
-let key = "";       // Set api key here.
+let key = "bf0a8ab5db6ce4bcfbbea6e263f07e56";       // Set api key here.
 let temperature = "";
 let weather = "";
 let aqi = "";

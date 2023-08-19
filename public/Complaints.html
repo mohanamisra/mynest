@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="complaints_style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 <title>Resident Issues & Complaints</title>
 
 </head>
@@ -19,7 +23,7 @@
  
     </select>
 
-    <label for="rating">Star Rating:</label>
+    <label for="rating">Cultural Inclusivity Rating:</label>
     <select id="rating" name="rating">
       <option value="1">1 Star</option>
       <option value="2">2 Stars</option>
@@ -28,13 +32,13 @@
       <option value="5">5 Stars</option>
     </select>
 
-    <label for="comment">Comment:</label>
+    <label for="comment">Your Opinion:</label>
     <textarea id="comment" name="comment" rows="4"></textarea>
 
     <label for="photo">Upload Photo (proof of issue):</label>
-    <input type="file" id="photo" name="photo" accept="image/*" required>
+    <input type="file" id="photo" name="photo" accept="image">
 
-    <button type="submit">Submit</button>
+    <button><a href = "property.html" class = "submitButton">Submit</a></button>
   </form>
 
   <div class="complaints">

@@ -1,1 +1,0 @@
-const searchInput = document.getElementById('search-bar');

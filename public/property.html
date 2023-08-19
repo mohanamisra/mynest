@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Page</title>
+    <link rel = "stylesheet" href = "property.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class = "container">
+        <navbar>
+            <ul class="navbar">
+                <li><a href="index.html">MyNest</a></li>
+                <li><a href="./seller_page.html">Sellers</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="loginpage.html">Your Profile</a></li>
+            </ul>
+        </navbar>
+
+        <div class = "gallery">
+            <div id = "left">&#9668;</div>
+            <div id = "contain"><img src = "public_assets/house.jpg" alt = "house image" class = "image"></div>
+            <div id = "right">&#9658;</div>
+        </div>
+
+        <div class = "data">
+            <div class = "basic">
+                <p>Name: Carleston Nest Apartment</p>
+                <p>Owned By: Mr. Mahesh Pandit Kumar Baweja</p>
+                <p>Address: 17, Lloyd Rd, Balaji Layout, Cooke Town, Bengaluru, Karnataka 560005</p>
+                <p>Area: 2000 sq ft</p>
+                <p>Price: 20,000 Rupees</p>
+                <button class = "clickable">Apply Now</button>
+            </div>
+
+            <div class = "unique">
+                <div class = "facilities">
+                    <h2>Nearby Facilities</h2>
+                    <div class = "graphics"></div>
+                </div>
+                <p id="temperature"></p>
+                <p id="weather"></p>
+                <p id="aqi"></p>
+                <div class = "user-data">
+                    <h2>Reported By Your Neighbours</h2>
+                    <p>Ongoing issues: Maintenance Problem, Security Concerns</p>
+                    <p>Cultural Inclusivity: &#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                    <button class = "clickable"><a href = "Complaints.html">Report An Issue</a></button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            Made by Team 405 Found &copy
+        </footer>
+    </div>
+
+    <script>
+        // Replace 'YOUR_API_KEY', 'YourCity', and 'YourCountryCode' with actual values
+        const apiKey = 'bf0a8ab5db6ce4bcfbbea6e263f07e56';
+        const city = 'Bengaluru';
+        const countryCode = 'IN';
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKey}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.main) {
+                    const temperature = data.main.temp;
+                    const weather = data.weather[0].description;
+                    const aqi = data.main.aqi || 'N/A';
+
+                    document.getElementById('temperature').textContent = `Temperature: ${temperature} K`;
+                    document.getElementById('weather').textContent = `Weather: ${weather}`;
+                    document.getElementById('aqi').textContent = `AQI: ${aqi}`;
+                } else {
+                    console.error('Error: Unexpected response format');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+    <script src = "property.js"></script>
+</body>
+</html>
