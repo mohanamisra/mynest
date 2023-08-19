@@ -11,15 +11,16 @@ app.use(express.static('files'))
 const HTMLPATH = './public/'
 const CITIES = './files/cities.json';
 const INDEX = 'index.html';
-const PROP  = 'properties.html'
+const PROP  = 'properties.html';
 
 app.get('/', (req, res) => {
   fs.readFile(path.join(HTMLPATH,INDEX), function (err, data) {
     res.send(data);
   });
 });
+
 //localhost:3000/?search=Domlur
-app.get('/?', (req, res) => {
+app.get('/properties.html', (req, res) => {
   var q = url.parse(req.url, true);
   console.log(q.query);
   var search = q.query.search;
